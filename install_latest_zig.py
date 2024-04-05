@@ -87,6 +87,9 @@ print("Done!")
 print(f"Extracting tarball:\n  {download_path}\nto\n  {install_dir}")
 shutil.unpack_archive(download_path, install_dir, "xztar", filter="data")
 print("Done!")
+print(f"Deleting tarball: {download_path}")
+download_path.unlink(missing_ok=True)
+print("Done")
 
 # update softlink to binary
 new_binary_path = install_path.joinpath("zig")
